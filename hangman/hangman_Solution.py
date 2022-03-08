@@ -102,7 +102,7 @@ class Hangman:
         # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
         # TODO 1: Assign the letter to a variable called `letter`
         # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
-        print ("Please enter a letter: ")
+        print ("\nPlease enter a letter: ")
         letter = input()
         if(letter.isalpha() and len(letter) == 1):
             # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
