@@ -49,7 +49,15 @@ class Hangman:
         # TODO 2: Print two message upon initialization:
         # 1. "The mistery word has {num_letters} characters"
         # 2. {word_guessed}
+       
+        self.str = random.choice(word_list)
+        self.word_guessed = ['_'] * len(self.str)
+        self.num_letters = len(set(self.str))
+        self.num_lives = num_lives
         self.list_letters = []
+
+        print("The mistery word has " + str(self.num_letters) + " characters")
+        print(self.word_guessed)
         pass
 
     def check_letter(self, letter) -> None:
@@ -65,6 +73,7 @@ class Hangman:
 
         '''
         # TODO 3: Check if the letter is in the word. TIP: You can use the lower() method to convert the letter to lowercase
+        letter.lower()
         # TODO 3: If the letter is in the word, replace the '_' in the word_guessed list with the letter
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
@@ -88,16 +97,17 @@ class Hangman:
             if(letter.isalpha() and len(letter) == 1):
                 # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
                 if(letter in  self.list_letters):
-                    print("Letter already guessed")
+                    print(letter + "was already tried")
                 else:
                     self.list_letters.append(letter)
-                    print("Guessed " + letter)
+                    #print("Guessed " + letter)
+                    # TODO 3: If the letter is valid, call the check_letter method
                     self.check_letter(self, letter)
             else:
-                print("Please enter a valid letter")
+                print("Please, enter just one character")
 
         
-        # TODO 3: If the letter is valid, call the check_letter method
+        
         pass
 
 def play_game(word_list):
